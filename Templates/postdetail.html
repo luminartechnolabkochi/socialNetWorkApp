@@ -1,0 +1,36 @@
+<!doctype html>
+{% extends 'base.html' %}
+{%block body_block%}
+
+
+     <!-- RECENT POST -->
+            <div class="panel panel-default post">
+              <div class="panel-body">
+                <div class="row">
+                  <div class="col-sm-2">
+
+                        {% for post in posts %}
+
+
+                  </div>
+                    <div class="bubble">
+                          <div class="col-sm-10">
+                                 {%if post.author.image%}
+                                <p><img src="{{post.author.image.url}}" class="author" height="100px" width="100px" alt=""></p>
+                            {%endif%}
+                           <strong> <h3>{{post.author}}</h3></strong>
+                            <p>{{post.created}}</p>
+                              <p>{{post.content}}</p>
+                    </div>
+                    <div class="pointer">
+                        {%if post.image%}
+                            <p><img src="{{post.image.url}}" width="700px" height="500px" alt=""></p>
+                        {%endif%}
+
+
+                    </div>
+                        {%endfor%}
+                  </div>
+                </div>
+              </div>
+{%endblock%}

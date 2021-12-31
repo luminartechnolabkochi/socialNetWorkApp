@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <!-- CSS only -->
+
+    <title>Welcome to Social</title>
+    <!-- Bootstrap core CSS -->
+    <link href="{% static 'main/css/bootstrap.css' %}" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="{% static 'main/css/style.css' %}" rel="stylesheet">
+    <link href="{% static 'main/css/font-awesome.css' %}" rel="stylesheet">
+    <style>
+      .welcome{
+      margin-left:800px;
+      }
+      .btn{
+      margin-left:300px;
+      }
+         h1{
+      text-align:center;
+      }
+
+
+    </style>
+`     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+        integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
+  </head>
+
+  <body>
+
+    <!-- HEADER SECTION -->
+    <header>
+      <div class="container">
+        <img src="{% static 'main/img/logo.png' %}" alt="Dobbler Logo" class="logo">
+
+      </div>
+      </div>
+    </header>
+
+
+
+        <div class="container">
+            <h1 style="">People</h1>
+                <div class="row mt-5">
+
+                </div>
+                <div class="row justify-content-center mt-5">
+                    <div class="card col-md-8 col-sm-12 shadow-sm px-5 pt-3">
+                        <div class="p-3">
+				            <ul class="all_users">
+                                {% for user in users%}
+                                    {% if user not in request.user.profile.friends.all and user != request.user%}
+                                        <h1>{{user}}</h1><button class="btn btn-warning"><a href="{%url 'sendrequest' user.id%}">Send friend request</a></button>
+                                    {%endif%}
+                                {%endfor%}
+                            </ul>
+
+                        </div>
+
+
+                    </div>
+                </div>
+        </div>
+
+  </body>
+</html>
+

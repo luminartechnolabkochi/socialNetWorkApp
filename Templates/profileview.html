@@ -1,0 +1,38 @@
+<!doctype html>
+{% extends 'base.html' %}
+{%block body_block%}
+
+
+<div class="container">
+    <h1 style="">Profile</h1>
+    <div class="row mt-5">
+        <div class="col-md-3 col-sm-6">
+
+        </div>
+    </div>
+    <div class="row justify-content-center mt-5">
+        <div class="card col-md-8 col-sm-12 shadow-sm px-5 pt-3">
+            <div>
+                <img src="{{ profile.image.url }}" class="rounded-circle" width="200" height="200" />
+            </div>
+            <div class="p-3">
+                {% if profile.user %}
+                <h2>Name</h2>
+                 {{ profile.user.first_name }}{{profile.user.last_name}}
+                {% endif %}
+                 <h2>Gender</h2>
+               {%if profile.gender%}
+                <p>{{profile.gender}}</p>
+                {% endif %}
+                <h2>Bio</h2>
+                {% if profile.bio %}
+                <p>{{ profile.bio }}</p>
+                {% endif %}
+            </div>
+            <a href="{% url 'profile' user.profile.pk %}" class=""><button class="btn btn-success">Update</button></a>
+
+        </div>
+    </div>
+</div>
+{%endblock%}
+

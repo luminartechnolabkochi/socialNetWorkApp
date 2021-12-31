@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+{%block body_block%}
+<div class="row">
+            {%for friend in friends%}
+            <div class="col-lg-3 mt-3">
+                <div class="friends">
+                    <div class="row mb-3">
+                        <div class="col-lg-12">
+                            {%if friend.profile.image%}
+                            <img src="{{friend.profile.image.url}}" alt="" width="100px" height="200px">
+                            {%endif%}
+                        </div>
+                        <div class="col-lg-12">
+                            <ul class="list-group">
+                                <li class="list-group-item list-group-item-primary"><h1><span>{{friend.first_name}} </span>&nbsp;{{friend.last_name}}</h1></li>
+
+
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="row">
+
+                    </div>
+
+                </div>
+            </div>
+            {%endfor%}
+        </div>
+
+
+
+
+{%endblock%}
+
